@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | Digital Business Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e1e2f, #252545);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid #00d2ff;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        p.bio {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .link-item:hover {
+            background: rgba(0, 210, 255, 0.2);
+            border-color: #00d2ff;
+            transform: scale(1.03);
+        }
+
+        .link-item i {
+            font-size: 1.2rem;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.75rem;
+            color: #777;
+        }
+
+        /* Dark/Light Toggle (Bonus) */
+        .theme-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="theme-btn" onclick="toggleTheme()"><i id="theme-icon" class="fas fa-moon"></i></button>
+
+    <div class="card">
+        <h1 id="name">Neng Rias</h1>
+        <p class="bio">Dekorasi Tenda | Pengantin & Khitanan</p>
+
+        <div class="links">
+            <a href="https://wa.me/6282192844921?text=Assalamu'alaikum,%20Saya%20Mau%20Tanya%20Tanya%20Soal%20Tenda" class="link-item" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://www.instagram.com/nengrias__?igsh=bzU3Zm42bHRmbW0z" class="link-item" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.tiktok.com/@neng.rias2?_r=1&_t=ZS-94zJIU6oHFI" class="link-item" target="_blank">
+                <i class="fab fa-Tiktok"></i> tiktok
+            </a>
+            <a href="nengriasdecor@gmail.com" class="link-item">
+                <i class="fas fa-envelope"></i> nengriasdecor@gmail.com
+            </a>
+            <a href="#" class="link-item" onclick="copyToClipboard()">
+                <i class="fas fa-share-alt"></i> Salin Link Profil
+            </a>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 Neng Rias.
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const el = document.createElement('textarea');
+            el.value = window.location.href;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert('Link profil berhasil disalin!');
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            
+            if (body.style.background.includes('white')) {
+                body.style.background = "linear-gradient(135deg, #1e1e2f, #252545)";
+                body.style.color = "white";
+                icon.className = "fas fa-moon";
+            } else {
+                body.style.background = "#ffffff";
+                body.style.color = "#333";
+                icon.className = "fas fa-sun";
+            }
+        }
+    </script>
+</body>
+</html>
